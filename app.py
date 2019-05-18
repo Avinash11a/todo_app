@@ -7,6 +7,7 @@ from forms import RegistrationForm
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todolist.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SECRET_KEY']='77ba4a802bdc4354e857246dc6027db6'
 db=SQLAlchemy(app)
 
 
@@ -52,6 +53,18 @@ def add_task():
 	tasklist=todo(task)
 	db.session.add(tasklist)
 	db.session.commit()
+
+@app.route('/register')
+def register():
+	form=RegistrationForm()
+	return render_template('register.html',title='Regsiter', form=form)
+
+
+
+
+
+
+
 
 
 
