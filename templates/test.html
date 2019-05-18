@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head><title>TODO APP</title></head>
+<body>
+	<h1>THE TASKS ARE</h1>
+	{% for todo in tasklist %}
+		<h3>required tasks</h3>
+		<h1>{{ todo.task }}</h1><br>
+		<hq>{{ todo.date }}</hq>
+	{% endfor %}
+</body>
+<form action="/task" method="post">
+    <p><input type="text" name="content"></p>
+    <input type="submit" value="Add task">
+</form>
